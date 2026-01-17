@@ -51,6 +51,22 @@ if page == "📊 Dashboard":
     col1, col2 = st.columns([2, 1])
     
     with col1:
+        # --- NEW: POPUP FOR ACCEPTANCE CRITERIA ---
+        with st.popover("📄 Upload File Acceptance Criteria & Format"):
+            st.markdown("### 📋 CSV Upload Requirements")
+            st.write("To ensure the models work correctly, your file must meet these criteria:")
+            st.markdown("""
+            - **Format:** Comma Separated Values (.csv)
+            - **Target Column:** Must contain `price_range` (Values: 0, 1, 2, 3)
+            - **Expected Columns (20 Features):**
+                `battery_power`, `blue`, `clock_speed`, `dual_sim`, `fc`, `four_g`, 
+                `int_memory`, `m_dep`, `mobile_wt`, `n_cores`, `pc`, `px_height`, 
+                `px_width`, `ram`, `sc_h`, `sc_w`, `talk_time`, `three_g`, 
+                `touch_screen`, `wifi`
+            - **Data Types:** All features should be numeric (int/float).
+            """)
+            st.info("💡 Note: The default `test-data.csv` is already formatted correctly.")
+
         uploaded_file = st.file_uploader("Upload Test Data (CSV)", type=["csv"])
         
         # Points to /datasets/test-data.csv

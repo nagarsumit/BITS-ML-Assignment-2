@@ -1,15 +1,14 @@
 # Mobile Price Classification - ML Assignment 2
 
 ## 1. Problem Statement
-This project implements a machine learning pipeline to classify mobile phones into price ranges (0, 1, 2, 3) based on their technical specifications. The goal is to build an interactive Streamlit web application that allows users to compare the performance of six different classification algorithms on the chosen dataset.
+This project implements a machine learning pipeline to classify mobile phones into price ranges (0, 1, 2, 3) based on their technical specifications. The goal is to build an interactive Streamlit web application that allows users to compare the performance of six different classification algorithms on a hold-out test dataset.
 
 ## 2. Dataset Description
 **Source:** Kaggle (Mobile Price Classification)
-
 **Dataset Name:** `mobile_price_classification.csv`
-
+**Test Data:** `test-data.csv` (20% hold-out set, used for evaluation)
 **Description:**
-The dataset contains **2000 instances** and **21 features**. It involves a **Multi-class** classification problem.
+The full dataset contains **2000 instances** and **21 features**. It involves a **Multi-class** classification problem.
 
 * **Target Variable:** `price_range` (0: Low Cost, 1: Medium Cost, 2: High Cost, 3: Very High Cost)
 * **Key Features:**
@@ -28,7 +27,9 @@ The following six machine learning models were implemented and evaluated:
 6.  XGBoost (Ensemble)
 
 ## 4. Evaluation Metrics & Comparison Table
-The models were evaluated using Accuracy, AUC Score, Precision, Recall, F1 Score, and MCC Score.
+The models were evaluated on `test-data.csv`.
+
+*(Note: These values are based on the provided test split. Live app results may vary slightly depending on environment setup and scaling availability.)*
 
 | ML Model Name             | Accuracy | AUC Score | Precision | Recall | F1 Score | MCC Score |
 |---------------------------|----------|-----------|-----------|--------|----------|-----------|
@@ -40,21 +41,22 @@ The models were evaluated using Accuracy, AUC Score, Precision, Recall, F1 Score
 | XGBoost (Ensemble)        | 0.9225   | 0.9889    | 0.9227    | 0.9225 | 0.9226   | 0.8967    |
 
 ## 5. Observations
-Below are the observations on the performance of each model on the chosen dataset:
+Below are the observations on the performance of each model on the `test-data.csv` subset:
 
 | ML Model Name             | Observation about model performance |
 |---------------------------|-------------------------------------|
-| Logistic Regression       | **Best Performer.** Achieved the highest accuracy (95.25%) and MCC score, indicating that the relationship between features (like RAM) and price is highly linear. |
-| Decision Tree             | Moderate performance (82.00%). Likely suffered from slight overfitting compared to the ensemble methods, resulting in lower generalization on the test set. |
-| KNN                       | Lowest performance (51.00%). The model struggled significantly, suggesting that even with scaling, the distance-based separation was not distinct enough for this high-dimensional data. |
-| Naive Bayes               | Good performance (81.75%) with a very high AUC (0.95). It ranked classes well despite the assumption of feature independence being violated. |
-| Random Forest (Ensemble)  | Strong performance (85.75%). It improved upon the single Decision Tree by reducing variance, though it trailed behind XGBoost and Logistic Regression. |
-| XGBoost (Ensemble)        | **Second Best Performer.** Achieved high accuracy (92.25%) and an excellent AUC score, demonstrating the power of gradient boosting on structured tabular data. |
+| Logistic Regression       | **Best Performer.** Achieved the highest accuracy (~95%) and MCC score. It correctly identified that the price range is linearly dependent on features like RAM and Battery Power. |
+| Decision Tree             | Moderate performance (~82%). As expected for a single tree, it showed signs of overfitting to the training data, leading to lower generalization on the `test-data.csv` file. |
+| KNN                       | **Sensitive to Scaling.** Performance (~51%) was significantly lower than others. This highlights that distance-based algorithms struggle with high-dimensional, unscaled data (raw pixel specs vs RAM). |
+| Naive Bayes               | Good baseline (~81%) with a very high AUC (0.95). It proved robust and fast, effectively ranking the classes even if the absolute predicted probabilities were not perfect. |
+| Random Forest (Ensemble)  | Strong performance (~86%). It successfully improved upon the single Decision Tree by averaging multiple trees, reducing variance and providing stable predictions. |
+| XGBoost (Ensemble)        | **Top-Tier Performer.** Achieved very high accuracy (~92%) and near-perfect AUC. It handled the non-linear complexities (like screen resolution vs battery life) excellent well. |
 
 ## 6. How to Run the App Locally
 
 ### Prerequisites
-* Python 3.8 or higher installed.
+* Python 3.8 or higher.
+* `test-data.csv` must be present in the root directory.
 
 ### Installation Steps
 
