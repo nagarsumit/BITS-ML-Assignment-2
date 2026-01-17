@@ -72,5 +72,5 @@ python -m pip install -r requirements.txt
 
 **Step 3: Run the Application**
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
