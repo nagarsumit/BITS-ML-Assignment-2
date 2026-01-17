@@ -47,7 +47,7 @@ if page == "📊 Dashboard":
     st.markdown("<h1 style='text-align: center;'>📱 Mobile Price Classification Dashboard</h1>", unsafe_allow_html=True)
     
     # 1. DATA SETUP SECTION
-    st.subheader("🛠️ Step 1: Data & Model Configuration")
+    st.subheader("🛠️ Data & Model Configuration")
     col1, col2 = st.columns([2, 1])
     
     with col1:
