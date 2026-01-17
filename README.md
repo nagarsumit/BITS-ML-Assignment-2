@@ -13,9 +13,12 @@
 This project implements a machine learning pipeline to classify mobile phones into price ranges (0, 1, 2, 3) based on their technical specifications. The goal is to build an interactive Streamlit web application that allows users to compare the performance of six different classification algorithms on a hold-out test dataset.
 
 ## 2. Dataset Description
-**Source:** Kaggle (Mobile Price Classification)
+**Source:** [Kaggle (Mobile Price Classification)](https://www.kaggle.com/datasets/sufyan145/mobile-price-classification/data)
+
 **Dataset Name:** `mobile_price_classification.csv`
+
 **Test Data:** `test-data.csv` (20% hold-out set, used for evaluation)
+
 **Description:**
 The full dataset contains **2000 instances** and **21 features**. It involves a **Multi-class** classification problem.
 
@@ -71,8 +74,8 @@ Below are the observations on the performance of each model on the `test-data.cs
 
 **Step 1: Clone the repository**
 ```bash
-git clone [YOUR_GITHUB_REPO_LINK]
-cd [YOUR_PROJECT_FOLDER]
+git clone [https://github.com/nagarsumit/BITS-ML-Assignment-2]
+cd [BITS-ML-Assignment-2]
 ```
 
 **Step 2: Install Dependencies**
