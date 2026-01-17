@@ -1,4 +1,13 @@
-# Mobile Price Classification - ML Assignment 2
+# 📱 Mobile Price Classification - ML Assignment 2
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://2025aa05220-ml2.streamlit.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-View_Repository-181717?logo=github)](https://github.com/nagarsumit/BITS-ML-Assignment-2)
+
+**Live App:** [https://2025aa05220-ml2.streamlit.app/](https://2025aa05220-ml2.streamlit.app/)
+
+**GitHub Source Code:** [https://github.com/nagarsumit/BITS-ML-Assignment-2](https://github.com/nagarsumit/BITS-ML-Assignment-2)
+
+**BITS LAB Execution** [BITS LAB Execution - Photo](https://github.com/nagarsumit/BITS-ML-Assignment-2/blob/main/BITS-LAB-2026-01-17%20132948.png)
 
 ## 1. Problem Statement
 This project implements a machine learning pipeline to classify mobile phones into price ranges (0, 1, 2, 3) based on their technical specifications. The goal is to build an interactive Streamlit web application that allows users to compare the performance of six different classification algorithms on a hold-out test dataset.
